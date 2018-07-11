@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchCuisines();
 });
 
+document.addEventListener('keyup', function(e) {
+  if (e.keyCode == 9) {
+    console.log(document.activeElement);
+  }
+});
 
 /**
  * Fetch all neighborhoods and set their HTML.
