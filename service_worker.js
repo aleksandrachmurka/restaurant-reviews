@@ -1,3 +1,4 @@
+// Cache static assets when Service Worked installs
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('restaurant-reviews-static-v1').then(function(cache) {
@@ -27,6 +28,7 @@ self.addEventListener('install', function(event) {
       );
 });
 
+//On fetch request, if possible, deliver cached content. Otherwise fetch from the server
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request).then(function(response) {
